@@ -1,26 +1,41 @@
-import { Injectable } from '@angular/core';
+import { Injectable, InjectionToken, Optional, Inject } from '@angular/core';
+
+export const ERROR_LEVEL = new InjectionToken<number>('ERROR_LEVEL');
 
 @Injectable()
 export class LoggerService {
+  private level: number = 5;
 
-  constructor() { }
+  constructor(@Optional() @Inject(ERROR_LEVEL) level: number) {
+    if (level != null) {
+      this.level = level;
+    }
+  }
 
   public error(msg: string): void {
-    console.error(msg);
+    if (this.level > 0) {
+      console.error(msg);
+    }
   }
   public warn(msg: string): void {
-    console.warn(msg);
+    if (this.level > 1) {
+      console.warn(msg);
+    }
   }
   public info(msg: string): void {
-    // tslint:disable-next-line: no-console
-    if (console.info) {
+    if (this.level > 2) {
       // tslint:disable-next-line: no-console
-      console.info(msg);
-    } else {
-      console.log(msg);
+      if (console.info) {
+        // tslint:disable-next-line: no-console
+        console.info(msg);
+      } else {
+        console.log(msg);
+      }
     }
   }
   public log(msg: string): void {
-    console.log(msg);
+    if (this.level > 3) {
+      console.log(msg);
+    }
   }
 }
