@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoggerService } from 'src/mp-core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Hola mundo';
+  constructor(out: LoggerService) {
+    out.error('Esto es un error');
+    out.warn('Esto es un warn');
+    out.info('Esto es un info');
+    out.log('Esto es un log');
+  }
 }

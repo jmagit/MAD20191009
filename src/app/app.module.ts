@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainModule } from './main/main.module';
 import { CommonAppModule } from './common-app/common-app.module';
-import { MpCoreModule } from 'src/mp-core';
+import { MpCoreModule, LoggerService } from 'src/mp-core';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,9 @@ import { MpCoreModule } from 'src/mp-core';
     MainModule, CommonAppModule, MpCoreModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    LoggerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
