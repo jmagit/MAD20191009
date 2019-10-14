@@ -35,7 +35,7 @@ export class NotificationService {
       this.out.error(`NOTIFICACION: ${msg}`);
     }
   }
-  public remove(index: number) {
+  public delete(index: number) {
     if (0 <= index && index < this.listado.length) {
       this.listado.splice(index, 1);
     } else {

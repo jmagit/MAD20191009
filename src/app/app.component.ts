@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { LoggerService } from 'src/mp-core';
 import { NotificationService } from './common-app/notification.service';
 
 @Component({
@@ -16,11 +15,10 @@ export class AppComponent {
   //   out.log('Esto es un log');
   // }
 
-  // constructor(notify: NotificationService) {
-  //   notify.add('Esto es un notificacion');
-  //   notify.delete(0);
-  //   notify.add(null);
-  //   notify.delete(0);
-
-  // }
+  constructor(notify: NotificationService) {
+    notify.add('Esto es un notificacion');
+    notify.delete(0);
+    notify.add(null);
+    notify.delete(0);
+  }
 }
