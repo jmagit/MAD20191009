@@ -10,16 +10,16 @@ import { LoggerService } from 'src/mp-core';
 export class DemosComponent implements OnInit {
   public Nombre: string = 'mundo';
   public listado = [
-    { id: 1, nombre: 'Madrid'},
-    { id: 2, nombre: 'barcelona'},
-    { id: 3, nombre: 'BILBAO'},
-    { id: 4, nombre: 'a Coruña'},
+    { id: 1, nombre: 'Madrid' },
+    { id: 2, nombre: 'barcelona' },
+    { id: 3, nombre: 'BILBAO' },
+    { id: 4, nombre: 'a Coruña' },
   ];
   public idProvincia = 2;
 
   public resultado: string = null;
   public visible = true;
-  public estetica = { importante: true, error: false, urgente: true};
+  public estetica = { importante: true, error: false, urgente: true };
 
   constructor(public notify: NotificationService, private out: LoggerService) { }
 
@@ -49,11 +49,30 @@ export class DemosComponent implements OnInit {
       return;
     }
     const id = this.listado.length === 0 ? 1 : (this.listado[this.listado.length - 1].id + 1);
-    this.listado.push({ id, nombre: provincia});
+    this.listado.push({ id, nombre: provincia });
     this.idProvincia = id;
   }
 
   ngOnInit() {
+  }
+
+  // tslint:disable:member-ordering
+  idiomas = [
+    { codigo: 'es', region: 'España' },
+    { codigo: 'pt', region: 'Portuges' },
+    { codigo: 'en-US', region: 'USA' }
+  ];
+  idioma = this.idiomas[0].codigo;
+  calculos: any[] = [];
+  valCalculadora = 666;
+  // tslint:enable:member-ordering
+
+  ponResultado(origen: string, valor: any) {
+    this.calculos.push({
+      pos: this.calculos.length + 1,
+      origen,
+      valor
+    });
   }
 
 }
