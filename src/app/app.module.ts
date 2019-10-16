@@ -20,6 +20,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { PersonasFormComponent } from './personas-form/personas-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { PersonasFormComponent } from './personas-form/personas-form.component';
     PersonasFormComponent,
   ],
   imports: [
-    BrowserModule, FormsModule,
+    BrowserModule, FormsModule, HttpClientModule,
     MainModule, CommonAppModule, MpCoreModule,
     AppRoutingModule
   ],

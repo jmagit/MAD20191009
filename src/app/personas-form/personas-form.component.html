@@ -26,7 +26,7 @@
             Debe estar entre los 16 y 67 años.</span>
     </p>
     <p>
-        <input type="button" value="Enviar" [disabled]="miForm.invalid" >
+        <input type="button" value="Enviar" [disabled]="miForm.invalid" (click)="send()" >
         <input type="button" value="Volver" >
     </p>
 </form>
