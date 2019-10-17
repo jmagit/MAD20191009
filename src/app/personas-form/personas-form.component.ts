@@ -20,8 +20,8 @@ import { PersonasDAOService, PersonasViewModelService } from '../personas';
 })
 export class PersonasFormComponent implements OnInit {
   VM = {
-    Elemento: { id: 0 }
-    //    Elemento: { id: 2, nombre: 'Pepitoooooooooooooooooo', apellidos: 'Grillo', edad: 101 }
+    // Elemento: { id: 0 }
+       Elemento: { id: 2, nombre: 'Pepitoooooooooooooooooo', apellidos: 'Grillo', edad: 101 }
   }
 
   constructor(private dao: PersonasDAOService,

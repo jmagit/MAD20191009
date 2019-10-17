@@ -23,6 +23,8 @@ import { PersonasFormComponent } from './personas-form/personas-form.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AjaxWaitInterceptor, AjaxWaitComponent } from './ajax-wait';
 import { PersonasModule } from './personas';
+import { MenuComponent } from './menu/menu.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { PersonasModule } from './personas';
     CalculadoraComponent,
     PersonasFormComponent,
     AjaxWaitComponent,
+    MenuComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
