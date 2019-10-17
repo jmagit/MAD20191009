@@ -4,13 +4,14 @@ import { RESTDAOService } from '../base-code/dao';
 import { HttpClient } from '@angular/common/http';
 import { NotificationService, NotificationType } from '../common-app/notification.service';
 import { send } from 'q';
+import { PersonasDAOService, PersonasViewModelService } from '../personas';
 
-@Injectable({ providedIn: 'root' })
-export class PersonasDAOService extends RESTDAOService<any, any> {
-  constructor(http: HttpClient) {
-    super(http, 'personas');
-  }
-}
+// @Injectable({ providedIn: 'root' })
+// export class PersonasDAOService extends RESTDAOService<any, any> {
+//   constructor(http: HttpClient) {
+//     super(http, 'personas');
+//   }
+// }
 
 @Component({
   selector: 'app-personas-form',
@@ -27,10 +28,10 @@ export class PersonasFormComponent implements OnInit {
     private notify: NotificationService) { }
 
   ngOnInit() {
-    // this.dao.get(4).subscribe(
-    //   data => this.VM.Elemento = data,
-    //   err => this.notify.add(err.message)
-    // );
+    this.dao.get(4).subscribe(
+      data => this.VM.Elemento = data,
+      err => this.notify.add(err.message)
+    );
   }
   send() {
     this.dao.add(this.VM.Elemento).subscribe(

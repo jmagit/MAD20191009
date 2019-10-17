@@ -20,7 +20,9 @@ import { NotificationComponent } from './notification/notification.component';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { PersonasFormComponent } from './personas-form/personas-form.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AjaxWaitInterceptor, AjaxWaitComponent } from './ajax-wait';
+import { PersonasModule } from './personas';
 
 @NgModule({
   declarations: [
@@ -31,15 +33,18 @@ import { HttpClientModule } from '@angular/common/http';
     DinamicoComponent,
     CalculadoraComponent,
     PersonasFormComponent,
+    AjaxWaitComponent,
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     MainModule, CommonAppModule, MpCoreModule,
+    PersonasModule,
     AppRoutingModule
   ],
   providers: [
     LoggerService,
-    { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL},
+    { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL },
+    { provide: HTTP_INTERCEPTORS, useClass: AjaxWaitInterceptor, multi: true, },
   ],
   bootstrap: [AppComponent]
 })
