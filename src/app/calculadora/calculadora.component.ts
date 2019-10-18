@@ -20,6 +20,7 @@ export class CalculadoraComponent implements OnInit, OnChanges {
   @Input() private init: string;
   @Output() updated: EventEmitter<any> = new EventEmitter();
   private separadorDecimal: string = '.';
+  @Input() public classCSS: string = '';
 
   constructor(private out: LoggerService) { }
 
